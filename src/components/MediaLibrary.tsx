@@ -47,7 +47,7 @@ function InstagramIcon() {
 }
 
 const TILE_BASE =
-  "tile-enter sheen group relative block aspect-square w-full overflow-hidden rounded-2xl border border-border-subtle bg-gradient-to-br from-surface to-surface-light text-left transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:border-accent/50 hover:shadow-xl hover:shadow-black/30 focus-visible:-translate-y-1 focus-visible:scale-[1.03]";
+  "tile-enter sheen group relative block aspect-square w-full overflow-hidden rounded-2xl border border-border-subtle bg-gradient-to-br from-surface to-surface-light text-left transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:border-accent/50 hover:shadow-xl hover:shadow-black/30 active:scale-[0.98] active:border-accent/50 active:shadow-xl active:shadow-black/30 focus-visible:-translate-y-1 focus-visible:scale-[1.03]";
 
 function tileStyle(index: number) {
   return { animationDelay: `${Math.min(index, 14) * 40}ms` };
@@ -75,14 +75,14 @@ function PhotoTile({
         alt={item.title}
         fill
         sizes="(min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
+        className="object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-110"
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-3 pt-10">
         <p className="text-[10px] uppercase tracking-wide text-white/80">
           {mediaCategoryLabels[item.category]}
         </p>
       </div>
-      <span className="pointer-events-none absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/55 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
+      <span className="pointer-events-none absolute right-2 top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/55 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100 group-active:opacity-100">
         <ExpandIcon />
       </span>
     </button>
@@ -113,11 +113,11 @@ function VideoTile({
             alt={item.title}
             fill
             sizes="(min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-110 group-active:scale-110"
           />
         )}
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/25 transition-colors duration-300 group-hover:bg-black/10">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-background shadow-lg transition-transform duration-300 group-hover:scale-110">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/25 transition-colors duration-300 group-hover:bg-black/10 group-active:bg-black/10">
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-background shadow-lg transition-transform duration-300 group-hover:scale-110 group-active:scale-105">
             <PlayIcon />
           </span>
         </div>
@@ -140,7 +140,7 @@ function VideoTile({
         style={tileStyle(index)}
         className={`${TILE_BASE} flex flex-col items-center justify-center gap-3 p-4 text-center`}
       >
-        <span className="text-[#E1306C] transition-transform duration-300 group-hover:scale-110">
+        <span className="text-[#E1306C] transition-transform duration-300 group-hover:scale-110 group-active:scale-110">
           <InstagramIcon />
         </span>
         <p className="text-xs font-medium text-foreground/80">{item.title}</p>

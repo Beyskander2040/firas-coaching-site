@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { MouseEvent, ReactNode, useRef } from "react";
+import { MouseEvent, ReactNode, TouchEvent, useRef } from "react";
 
 export default function GlowCard({
   children,
@@ -36,9 +36,22 @@ export default function GlowCard({
     y.set(0);
   }
 
+  function handleTouchMove(e: TouchEvent<HTMLDivElement>) {
+    const rect = ref.current?.getBoundingClientRect();
+    const touch = e.touches[0];
+    if (!rect || !touch) return;
+    x.set((touch.clientX - rect.left) / rect.width - 0.5);
+    y.set((touch.clientY - rect.top) / rect.height - 0.5);
+  }
+
+  function handleTouchEnd() {
+    x.set(0);
+    y.set(0);
+  }
+
   return (
     <div
-      className={`relative mx-auto w-full max-w-sm sm:max-w-md ${className}`}
+      className={`relative mx-auto w-full sm:max-w-md ${className}`}
       style={{ perspective: 1200 }}
     >
       <div
@@ -53,6 +66,9 @@ export default function GlowCard({
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
         className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] border border-border-subtle shadow-2xl shadow-black/40"
       >

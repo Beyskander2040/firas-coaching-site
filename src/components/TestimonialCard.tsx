@@ -9,10 +9,10 @@ export default function TestimonialCard({
 }) {
   return (
     <figure
-      className={`sheen relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 ${
+      className={`sheen relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 active:-translate-y-0.5 active:scale-[0.99] ${
         light
-          ? "border-black/10 bg-gym-surface hover:shadow-xl hover:shadow-black/10"
-          : "border-border-subtle bg-surface hover:border-accent/30 hover:shadow-xl hover:shadow-black/30"
+          ? "border-black/10 bg-gym-surface hover:shadow-xl hover:shadow-black/10 active:shadow-lg active:shadow-black/10"
+          : "border-border-subtle bg-surface hover:border-accent/30 hover:shadow-xl hover:shadow-black/30 active:border-accent/30 active:shadow-lg active:shadow-black/30"
       }`}
     >
       <blockquote

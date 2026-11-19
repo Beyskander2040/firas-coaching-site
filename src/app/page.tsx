@@ -204,7 +204,7 @@ export default function HomePage() {
               <StaggerItem key={pillar.title}>
                 <Link
                   href={pillar.href}
-                  className="sheen group relative block h-full overflow-hidden rounded-2xl border border-border-subtle bg-surface p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl hover:shadow-black/30"
+                  className="sheen group relative block h-full overflow-hidden rounded-2xl border border-border-subtle bg-surface p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/50 hover:shadow-xl hover:shadow-black/30 active:-translate-y-0.5 active:scale-[0.99] active:border-accent/50 active:shadow-xl active:shadow-black/30"
                 >
                   <h3 className="font-heading text-xl font-semibold">{pillar.title}</h3>
                   <p className="mt-3 text-sm text-muted">{pillar.description}</p>

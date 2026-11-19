@@ -6,10 +6,10 @@ export default function OfferCard({ offer, light = false }: { offer: Offer; ligh
 
   return (
     <div
-      className={`sheen relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1.5 ${
+      className={`sheen relative flex h-full flex-col overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1.5 active:-translate-y-0.5 active:scale-[0.99] ${
         light
-          ? `border-black/10 bg-gym-surface hover:shadow-xl hover:shadow-black/10 ${offer.highlight ? "ring-2 ring-gym-accent" : ""}`
-          : `border-border-subtle bg-surface hover:border-accent/40 hover:shadow-xl hover:shadow-black/30 ${offer.highlight ? "ring-2 ring-accent" : ""}`
+          ? `border-black/10 bg-gym-surface hover:shadow-xl hover:shadow-black/10 active:shadow-lg active:shadow-black/10 ${offer.highlight ? "ring-2 ring-gym-accent" : ""}`
+          : `border-border-subtle bg-surface hover:border-accent/40 hover:shadow-xl hover:shadow-black/30 active:border-accent/40 active:shadow-lg active:shadow-black/30 ${offer.highlight ? "ring-2 ring-accent" : ""}`
       }`}
     >
       {offer.highlight && (
