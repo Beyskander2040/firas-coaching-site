@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw video footage (fichiers caméra bruts, ~900 Mo — gardés en local uniquement ;
+# les versions compressées utilisées par le site sont dans public/videos/*.mp4, voir src/data/media.ts)
+/public/videos/*.mov

@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Firas — Personal Branding, Coaching & Gym
 
-## Getting Started
+Site Next.js (TypeScript + Tailwind CSS) pour Firas, coach / athlète / gym owner.
+Contenu actuellement en dur (pas d'espace admin) — voir la section "À personnaliser" ci-dessous.
 
-First, run the development server:
+## Démarrer
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` Accueil
+- `/a-propos` Parcours, certifications, philosophie, valeurs
+- `/coaching` Private Coaching (offres + process)
+- `/gym` Gym / Studios (identité visuelle distincte, plus lumineuse)
+- `/offres` Toutes les formules (coaching + salle)
+- `/media` Media Hub (bibliothèque vidéo/photo filtrable par catégorie)
+- `/contact` Formulaire → WhatsApp, Instagram, QR code
 
-## Learn More
+## À personnaliser
 
-To learn more about Next.js, take a look at the following resources:
+Tout se modifie dans `src/config/` et `src/data/`, sans toucher au reste du code :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/config/site.ts` — numéro WhatsApp, Instagram, email, adresse, lien Maps, nom de domaine.
+- `src/data/offers.ts` — formules de coaching et d'abonnement salle.
+- `src/data/media.ts` — bibliothèque vidéos/photos et catégories.
+- `src/data/testimonials.ts` — témoignages clients.
+- `src/app/a-propos/page.tsx` — parcours, certifications, texte de philosophie.
+- `src/app/gym/page.tsx` — espaces, équipements, horaires.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Les photos du Media Hub (et les images mises en avant sur Accueil/À propos/Coaching) sont les
+vraies photos de Firas, dans `public/images/`. Les vidéos ne sont **pas** hébergées sur le site
+(fichiers bruts bien trop volumineux pour le web) : elles sont publiées en Reels sur Instagram et
+le site pointe simplement vers le post via `instagramUrl` dans `src/data/media.ts`. Pour ajouter
+une vidéo : publier le Reel, puis renseigner son URL sur l'entrée correspondante.
 
-## Deploy on Vercel
+## Prochaines évolutions possibles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Espace administrateur (CMS) pour gérer offres/médias sans toucher au code.
+- Hébergement média dédié pour les vidéos originales (l'intégration Instagram ne remplace pas une sauvegarde des fichiers).
+- Formulaire de contact relié à un service d'email en plus du lien WhatsApp.
+- Statistiques de visite (ex. Plausible, Google Analytics) une fois le domaine en ligne.
